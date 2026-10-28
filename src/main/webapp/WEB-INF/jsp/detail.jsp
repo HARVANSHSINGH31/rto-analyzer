@@ -31,11 +31,14 @@
         <form method="post" action="/shipments/${s.shipmentId}/attempt" class="stack">
           <label>Time slot
             <select name="timeSlot">
-              <option>MORNING</option><option>AFTERNOON</option><option>EVENING</option>
+              <option>MORNING</option>
+              <option>AFTERNOON</option>
+              <option>EVENING</option>
             </select>
           </label>
           <label>Outcome
-            <select name="outcome">
+            <select name="outcome" required>
+              <option value="" selected disabled>Choose outcome</option>
               <option value="DELIVERED">Delivered</option>
               <option value="FAILED">Failed</option>
             </select>

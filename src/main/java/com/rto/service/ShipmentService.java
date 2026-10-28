@@ -37,8 +37,13 @@ public class ShipmentService {
             throw new InvalidTransitionException(
                 "Attempts can only be logged when OUT_FOR_DELIVERY (current: " + current + ")");
         }
-        if (!delivered && (reason == null || reason.isBlank())) {
+
+        boolean hasReason = reason != null && !reason.isBlank();
+        if (!delivered && !hasReason) {
             throw new InvalidTransitionException("Select a failure reason for a failed attempt");
+        }
+        if (delivered && hasReason) {
+            throw new InvalidTransitionException("A delivered attempt cannot have a failure reason");
         }
 
         int attemptNo = dao.nextAttemptNo(shipmentId);
