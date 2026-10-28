@@ -118,7 +118,7 @@ save_png <- function(name, expr) {
   png(file.path(chart_dir, name), width = 900, height = 520, res = 120)
   par(mar = c(5, 5, 3, 1))
   expr
-  dev.off()
+  invisible(dev.off())
 }
 
 save_png("rto_by_payment.png", {

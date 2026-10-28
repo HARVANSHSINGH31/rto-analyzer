@@ -32,6 +32,7 @@
   <h1>RTO Analyzer</h1>
   <a href="/shipments">Shipments</a>
   <a href="/shipments/new">New Shipment</a>
+    <a href="/analytics">Analytics</a>
 </header>
 <c:if test="${not empty msg}"><div class="flash ok">${msg}</div></c:if>
 <c:if test="${not empty error}"><div class="flash err">${error}</div></c:if>
